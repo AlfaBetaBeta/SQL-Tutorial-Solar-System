@@ -13,6 +13,23 @@ In addition to the tables above, there is a fourth one (`PlanetElements`) relati
 
 <img src="https://github.com/AlfaBetaBeta/SQL-Tutorial-Solar-System/blob/master/img/ERD.png" width=80% height=80%>
 
+The tables above may be properly populated provided scraping from reliable data sources can be ensured. Otherwise, for simplicity and for the sake of facilitating execution, it can be resorted to sample non-rigurous values via:
+```
+db2 -tvmf exampleTables.sql
+``` 
+
+The following queries are addressed in `queries.sql`:
+* What are the top 3 relevant elements of the Solar System?
+* How much time does it take to make a round trip from Earth to each of the other planets?
+* What is the total mass of the solar system?
+* Which planet has the minimum number of rotation cycles per revolution?
+* Which planet has the largest mass ratio of (aggregated) satellites to parent planet?
+
+To execute the queries, just run:
+```
+db2 -tvmf queries.sql
+``` 
+
 Caveats to the queries, function `QUANTIZE`, logical execution order allowing for double alliasing before `ORDER BY`
 
 <img src="https://github.com/AlfaBetaBeta/SQL-Tutorial-Solar-System/blob/master/img/db2-image.png" width=100% height=100%>
