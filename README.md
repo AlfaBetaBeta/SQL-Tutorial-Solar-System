@@ -30,6 +30,17 @@ To execute the queries, just run:
 db2 -tvmf queries.sql
 ``` 
 
-Caveats to the queries, function `QUANTIZE`, logical execution order allowing for double alliasing before `ORDER BY`
+Despite the simplicity of the database and the queries, there are a few caveats that may be useful as takeaways:
+* Using quoted aliases allows for blanks, symbols (which is useful for displaying units) and column labelling including reserved keywords
+* `QUANTIZE` is a handy function to control precision upon display
+* The logical processing order dictating physical execution might vary depending on the query processor but roughly it is likely to follow the sequence structure below (top to bottom):
+    * `FROM` (including `JOIN`...`ON`)
+    * `WHERE`
+    * `GROUP BY`
+    * `HAVING`
+    * `SELECT`
+    * `ORDER BY`
+
+This order is the reason why the last query works, note that alias `Y` from the subselect is visible in the main select and that it can be re-aliased before ordering by it. Illustratively, below is the output of such query when executing on db2:
 
 <img src="https://github.com/AlfaBetaBeta/SQL-Tutorial-Solar-System/blob/master/img/db2-image.png" width=100% height=100%>
