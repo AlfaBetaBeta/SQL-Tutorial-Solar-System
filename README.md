@@ -15,7 +15,7 @@ In addition to the tables above, there is a fourth one (`PlanetElements`) relati
 
 The tables above may be properly populated provided scraping from reliable data sources can be ensured. Otherwise, for simplicity and for the sake of facilitating execution, it can be resorted to sample non-rigurous values via:
 ```
-db2 -tvmf exampleTables.sql
+$ db2 -tvmf exampleTables.sql
 ``` 
 
 The following queries are addressed in `queries.sql`:
@@ -27,7 +27,7 @@ The following queries are addressed in `queries.sql`:
 
 To execute the queries, just run:
 ```
-db2 -tvmf queries.sql
+$ db2 -tvmf queries.sql
 ``` 
 
 Despite the simplicity of the database and the queries, there are a few caveats that may be useful as takeaways:
